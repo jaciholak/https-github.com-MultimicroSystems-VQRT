@@ -1,0 +1,88 @@
+C:\VBNet\VQRT\VQRT.NET1\obj\Release\ResolveAssemblyReference.cache
+C:\VBNet\VQRT\VQRT.NET1\obj\Release\Interop.MSACAL.dll
+C:\VBNet\VQRT\VQRT.NET1\obj\Release\Interop.MSComCtl2.dll
+C:\VBNet\VQRT\VQRT.NET1\obj\Release\Interop.StdType.dll
+C:\VBNet\VQRT\VQRT.NET1\obj\Release\AxInterop.MSACAL.dll
+C:\VBNet\VQRT\VQRT.NET1\obj\Release\AxInterop.MSComCtl2.dll
+C:\VBNet\VQRT\VQRT.NET1\obj\Release\vqrt.vbproj.ResolveComReference.cache
+C:\VBNet\VQRT\VQRT.NET1\obj\Release\VQRT.frmQuoteRpt.resources
+C:\VBNet\VQRT\VQRT.NET1\obj\Release\vqrt.vbproj.GenerateResource.Cache
+C:\VBNet\VQRT\VQRT.NET1\bin\VQRT.exe.config
+C:\VBNet\VQRT.NET1\obj\Release\ResolveAssemblyReference.cache
+C:\VBNet\VQRT.NET1\obj\Release\Interop.MSACAL.dll
+C:\VBNet\VQRT.NET1\obj\Release\Interop.MSComCtl2.dll
+C:\VBNet\VQRT.NET1\obj\Release\Interop.StdType.dll
+C:\VBNet\VQRT.NET1\obj\Release\AxInterop.MSACAL.dll
+C:\VBNet\VQRT.NET1\obj\Release\AxInterop.MSComCtl2.dll
+C:\VBNet\VQRT.NET1\obj\Release\vqrt.vbproj.ResolveComReference.cache
+C:\VBNet\VQRT.NET1\obj\Release\VQRT.ppv.resources
+C:\VBNet\VQRT.NET1\obj\Release\VQRT.frmQuoteRpt.resources
+C:\VBNet\VQRT.NET1\obj\Release\vqrt.vbproj.GenerateResource.Cache
+C:\VBNet\VQRT.NET1\obj\Release\VQRT.exe.licenses
+C:\VBNet\VQRT.NET1\bin\VQRT.exe.config
+C:\VBNet\VQRT - Copy\bin\VQRT.exe.config
+C:\VBNet\VQRT - Copy\obj\Release\VQRT.exe
+C:\VBNet\VQRT - Copy\obj\Release\VQRT.xml
+C:\vbnet\VQRT\bin\VQRT.exe.config
+C:\vbnet\VQRT\bin\VQRT.exe
+C:\vbnet\VQRT\bin\VQRT.xml
+C:\vbnet\VQRT\bin\C1.Win.C1List.2.dll
+C:\vbnet\VQRT\bin\C1.Win.C1List.2.xml
+C:\vbnet\VQRT\bin\C1.Win.C1Ribbon.2.xml
+C:\vbnet\VQRT\obj\Release\ResolveAssemblyReference.cache
+C:\vbnet\VQRT\obj\Release\VQRT.Resources.resources
+C:\vbnet\VQRT\obj\Release\VQRT.ppv.resources
+C:\vbnet\VQRT\obj\Release\VQRT.splashscreen.resources
+C:\vbnet\VQRT\obj\Release\VQRT.frmShowHideGrid.resources
+C:\vbnet\VQRT\obj\Release\VQRT.frmQuoteRpt.resources
+C:\vbnet\VQRT\obj\Release\vqrt.vbproj.GenerateResource.Cache
+C:\vbnet\VQRT\obj\Release\VQRT.exe.licenses
+C:\vbnet\VQRT\obj\Release\VQRT.exe
+C:\vbnet\VQRT\obj\Release\VQRT.xml
+C:\VBNet\VQRT\bin\C1.C1Report.2.dll
+C:\VBNet\VQRT\bin\C1.Win.C1Report.2.dll
+C:\VBNet\VQRT\bin\System.Windows.Forms.DataVisualization.dll
+C:\VBNet\VQRT\bin\C1.Win.C1Report.2.xml
+C:\VBNet\VQRT\bin\C1.C1Report.2.xml
+C:\VBNet\VQRT\obj\Release\VQRT.frmAbout.resources
+C:\VBNet\VQRT\bin\C1.Win.C1Command.2.dll
+C:\VBNet\VQRT\bin\C1.Win.C1Input.2.dll
+C:\VBNet\VQRT\bin\C1.Win.C1Ribbon.2.dll
+C:\VBNet\VQRT\bin\C1.Win.C1SuperTooltip.2.dll
+C:\VBNet\VQRT\bin\C1.Win.C1TrueDBGrid.2.dll
+C:\VBNet\VQRT\bin\C1.Win.C1SuperTooltip.2.xml
+C:\VBNet\VQRT\bin\C1.Win.C1Command.2.xml
+C:\VBNet\VQRT\bin\C1.Win.C1Input.2.xml
+C:\VBNet\VQRT\bin\C1.Win.C1TrueDBGrid.2.xml
+C:\VBNET VS2010\VQRT\bin\VQRT.exe.config
+C:\VBNET VS2010\VQRT\obj\Release\VQRT.exe
+C:\VBNET VS2010\VQRT\obj\Release\VQRT.xml
+C:\VBNET VS2010\VQRT\bin\VQRT.exe
+C:\VBNET VS2010\VQRT\bin\VQRT.xml
+C:\VBNET VS2010\VQRT\bin\C1.C1Report.2.dll
+C:\VBNET VS2010\VQRT\bin\C1.Win.C1Command.2.dll
+C:\VBNET VS2010\VQRT\bin\C1.Win.C1Input.2.dll
+C:\VBNET VS2010\VQRT\bin\C1.Win.C1List.2.dll
+C:\VBNET VS2010\VQRT\bin\C1.Win.C1Report.2.dll
+C:\VBNET VS2010\VQRT\bin\C1.Win.C1Ribbon.2.dll
+C:\VBNET VS2010\VQRT\bin\C1.Win.C1SuperTooltip.2.dll
+C:\VBNET VS2010\VQRT\bin\C1.Win.C1TrueDBGrid.2.dll
+C:\VBNET VS2010\VQRT\bin\System.Windows.Forms.DataVisualization.dll
+C:\VBNET VS2010\VQRT\bin\C1.C1Report.2.xml
+C:\VBNET VS2010\VQRT\bin\C1.Win.C1Command.2.xml
+C:\VBNET VS2010\VQRT\bin\C1.Win.C1Input.2.xml
+C:\VBNET VS2010\VQRT\bin\C1.Win.C1List.2.xml
+C:\VBNET VS2010\VQRT\bin\C1.Win.C1Report.2.xml
+C:\VBNET VS2010\VQRT\bin\C1.Win.C1Ribbon.2.xml
+C:\VBNET VS2010\VQRT\bin\C1.Win.C1SuperTooltip.2.xml
+C:\VBNET VS2010\VQRT\bin\C1.Win.C1TrueDBGrid.2.xml
+C:\VBNET VS2010\VQRT\obj\Release\ResolveAssemblyReference.cache
+C:\VBNET VS2010\VQRT\obj\Release\VQRT.frmAbout.resources
+C:\VBNET VS2010\VQRT\obj\Release\VQRT.Resources.resources
+C:\VBNET VS2010\VQRT\obj\Release\VQRT.ppv.resources
+C:\VBNET VS2010\VQRT\obj\Release\VQRT.splashscreen.resources
+C:\VBNET VS2010\VQRT\obj\Release\VQRT.frmShowHideGrid.resources
+C:\VBNET VS2010\VQRT\obj\Release\VQRT.frmQuoteRpt.resources
+C:\VBNET VS2010\VQRT\obj\Release\ResGen.read.1.tlog
+C:\VBNET VS2010\VQRT\obj\Release\ResGen.write.1.tlog
+C:\VBNET VS2010\VQRT\obj\Release\VQRT.exe.licenses

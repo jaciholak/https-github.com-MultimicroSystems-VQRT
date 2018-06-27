@@ -1,0 +1,211 @@
+<?xml version="1.0" standalone="yes"?>
+<dsGrid>
+  <xs:schema id="dsGrid" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="dsGrid" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Items">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Column_x0020_Name" type="xs:string" minOccurs="0" />
+                <xs:element name="Show" type="xs:boolean" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Items>
+    <Column_x0020_Name>Job Name</Column_x0020_Name>
+    <Show>true</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Quote Code</Column_x0020_Name>
+    <Show>true</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Entry Date</Column_x0020_Name>
+    <Show>true</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Source Quote</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Retrieval Code</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>PR-APRV</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Deliver Date</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Bid Date</Column_x0020_Name>
+    <Show>true</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>SLSQ</Column_x0020_Name>
+    <Show>true</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Status</Column_x0020_Name>
+    <Show>true</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>BidTime</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Book</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Sell</Column_x0020_Name>
+    <Show>true</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Comm-$</Column_x0020_Name>
+    <Show>true</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Comm-%</Column_x0020_Name>
+    <Show>true</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>CSR</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Type</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>S/J</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Select Code</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>S/C</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>OE By</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Follow By</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Shipment By</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>LP Cost</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>LP Sell</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>LP Marg</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>L/U</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Remarks</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Last Chg By</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Header Tab</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Probability</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>LinesYN</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Lighting Gear</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Dimming</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Last Date Time</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>BidBoard</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>E-By</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Branch</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Address</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Address2</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>City</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>State</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Zip</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Country</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Location</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Market Segment</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Lead Time</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+  <Items>
+    <Column_x0020_Name>Reference</Column_x0020_Name>
+    <Show>false</Show>
+  </Items>
+</dsGrid>

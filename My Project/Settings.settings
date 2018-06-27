@@ -1,0 +1,59 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="FormLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="FormSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">1000, 700</Value>
+    </Setting>
+    <Setting Name="FormWidth" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="FormHeight" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="saw8ConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;server=localhost;User Id=root;password=saw987;database=saw8;Persist Security Info=True;Default Command Timeout=600&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">server=localhost;User Id=root;password=saw987;database=saw8;Persist Security Info=True;Default Command Timeout=600</Value>
+    </Setting>
+    <Setting Name="BackGroundColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="ForegroundColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Black</Value>
+    </Setting>
+    <Setting Name="Font" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Arial, 9pt</Value>
+    </Setting>
+    <Setting Name="WindowState" Type="System.Windows.Forms.FormWindowState" Scope="User">
+      <Value Profile="(Default)">Normal</Value>
+    </Setting>
+    <Setting Name="RibbonMinimized" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="RibbonMaxNameTxt" Type="System.String" Scope="User">
+      <Value Profile="(Default)">45</Value>
+    </Setting>
+    <Setting Name="RibbonMaxJobTxt" Type="System.String" Scope="User">
+      <Value Profile="(Default)">40</Value>
+    </Setting>
+    <Setting Name="WholeDollars" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AddCommas" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AddDollarSign" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="PrintGrayScale" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

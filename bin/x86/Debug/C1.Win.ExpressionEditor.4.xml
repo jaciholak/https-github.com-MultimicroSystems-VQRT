@@ -1,0 +1,1199 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>C1.Win.ExpressionEditor.4</name>
+  </assembly>
+  <members>
+    <member name="T:C1.ExpressionEditor.Engine.IEngine">
+      <summary>
+            Defines properties and methods of expression engine.
+            </summary>
+    </member>
+    <member name="P:C1.ExpressionEditor.Engine.IEngine.DataSource">
+      <summary>
+            Gets or sets the object used as the data source.
+            </summary>
+    </member>
+    <member name="M:C1.ExpressionEditor.Engine.IEngine.Evaluate">
+      <summary>
+            Gets a result of expression.
+            </summary>
+    </member>
+    <member name="M:C1.ExpressionEditor.Engine.IEngine.TryEvaluate(System.Object@)">
+      <summary>
+            Gets a result of expression. A return value indicates whether the evaluate succeeded or failed.
+            </summary>
+      <param name="result">This parameter is passed uninitialized; any value originally supplied in result will be overwritten.</param>
+      <returns>true if expression was evaluated successfully; otherwise, false.</returns>
+    </member>
+    <member name="P:C1.ExpressionEditor.Engine.IEngine.Expression">
+      <summary>
+            Gets or sets expression string.
+            </summary>
+    </member>
+    <member name="P:C1.ExpressionEditor.Engine.IEngine.ItemContext">
+      <summary>
+            Gets or sets the object used as the context for evaluating an expression.
+            </summary>
+      <remarks>
+            If the DataSource property represents collection of objects, then ItemContext usually represents one of items from this collection.
+            In most cases it is done automatically by the ExpressionEditor control and doesn't require any custom code.
+            Please only use this property if you see problems with default behavior.
+            </remarks>
+    </member>
+    <member name="P:C1.ExpressionEditor.Engine.IEngine.IsValid">
+      <summary>
+            Gets a value that indicates whether the expression is valid.
+            </summary>
+    </member>
+    <member name="M:C1.ExpressionEditor.Engine.IEngine.GetErrors">
+      <summary>
+            Gets a list of <see cref="T:C1.ExpressionEditor.Engine.ErrorInfo" /> objects.
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:C1.ExpressionEditor.Engine.IEngine.CultureInfo">
+      <summary>
+            Gets or sets the <see cref="P:C1.ExpressionEditor.Engine.IEngine.CultureInfo" /> to use when parsing numbers and dates.
+            </summary>
+    </member>
+    <member name="T:C1.ExpressionEditor.Engine.ErrorInfo">
+      <summary>
+            Provides a information about error of evaluating or parsing.
+            </summary>
+    </member>
+    <member name="P:C1.ExpressionEditor.Engine.ErrorInfo.Length">
+      <summary>
+            Gets a value that indicates a length of error. This value is used for underline errors.
+            </summary>
+    </member>
+    <member name="P:C1.ExpressionEditor.Engine.ErrorInfo.Position">
+      <summary>
+            Gets a value that indicates a position of error.
+            </summary>
+    </member>
+    <member name="P:C1.ExpressionEditor.Engine.ErrorInfo.FullMessage">
+      <summary>
+            Gets a full message with a information about error, can contain: position, length and etc.
+            </summary>
+    </member>
+    <member name="P:C1.ExpressionEditor.Engine.ErrorInfo.Message">
+      <summary>
+            Gets a message with a information about error.
+            </summary>
+    </member>
+    <member name="M:C1.ExpressionEditor.Engine.ErrorInfo.Equals(System.Object)">
+      <summary>
+            Determines whether the specified <see cref="T:C1.ExpressionEditor.Engine.ErrorInfo" /> is equal to the current <see cref="T:C1.ExpressionEditor.Engine.ErrorInfo" />.
+            </summary>
+    </member>
+    <member name="M:C1.ExpressionEditor.Engine.ErrorInfo.GetHashCode">
+      <summary>
+            Serves as a hash function for a particular type.
+            </summary>
+    </member>
+    <member name="T:C1.ExpressionEditor.Engine.IExpressionLexer">
+      <summary>
+            Defines the lexical dictionary of expression engine.
+            </summary>
+    </member>
+    <member name="M:C1.ExpressionEditor.Engine.IExpressionLexer.GetExpressionItems">
+      <summary>
+            Gets list of <see cref="T:C1.ExpressionEditor.Engine.ExpressionItem" /> of the current context.
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:C1.ExpressionEditor.Engine.ScriptErrorInfo">
+      <summary>
+            Provides a information about error of evaluating or parsing.
+            </summary>
+    </member>
+    <member name="M:C1.ExpressionEditor.Engine.ScriptErrorInfo.#ctor(System.Int32,System.Int32,C1.ExpressionEditor.Engine.ErrorType)">
+      <summary>
+            Initializes a new instance of the <see cref="T:C1.ExpressionEditor.Engine.ScriptErrorInfo" /> with the specified position, length and type of error.
+            </summary>
+      <param name="position">The position of new error.</param>
+      <param name="length">The length of new error.</param>
+      <param name="type">The <see cref="T:C1.ExpressionEditor.Engine.ErrorType" /> of error.</param>
+    </member>
+    <member name="P:C1.ExpressionEditor.Engine.ScriptErrorInfo.Type">
+      <summary>
+            Gets a value that indicates a <see cref="T:C1.ExpressionEditor.Engine.ErrorType" /> of error.
+            </summary>
+    </member>
+    <member name="P:C1.ExpressionEditor.Engine.ScriptErrorInfo.FullMessage">
+      <summary>
+            Gets a full message with a information about error, contains: position and message.
+            </summary>
+    </member>
+    <member name="P:C1.ExpressionEditor.Engine.ScriptErrorInfo.Message">
+      <summary>
+            Gets a message with a information about error.
+            </summary>
+    </member>
+    <member name="M:C1.ExpressionEditor.Engine.ScriptErrorInfo.Equals(System.Object)">
+      <summary>
+            Determines whether the specified <see cref="T:C1.ExpressionEditor.Engine.ScriptErrorInfo" /> is equal to the current <see cref="T:C1.ExpressionEditor.Engine.ScriptErrorInfo" />.
+            </summary>
+    </member>
+    <member name="M:C1.ExpressionEditor.Engine.ScriptErrorInfo.GetHashCode">
+      <summary>
+            Serves as a hash function for a particular type.
+            </summary>
+    </member>
+    <member name="T:C1.ExpressionEditor.Engine.ErrorType">
+      <summary>
+            Specifies the type of error by <see cref="T:C1.ExpressionEditor.Engine.ScriptErrorInfo" />.
+            </summary>
+    </member>
+    <member name="F:C1.ExpressionEditor.Engine.ErrorType.CanNotFindFinalDateDelimiter">
+      <summary>
+            Can't find final date delimiter ('#').
+            </summary>
+    </member>
+    <member name="F:C1.ExpressionEditor.Engine.ErrorType.CanNotFindFinalQuote">
+      <summary>
+            Can't find final quote.
+            </summary>
+    </member>
+    <member name="F:C1.ExpressionEditor.Engine.ErrorType.CanNotFindFinalSquareBracket">
+      <summary>
+            Can't find final square bracket.
+            </summary>
+    </member>
+    <member name="F:C1.ExpressionEditor.Engine.ErrorType.ExpressionExpected">
+      <summary>
+            Expression expected.
+            </summary>
+    </member>
+    <member name="F:C1.ExpressionEditor.Engine.ErrorType.FieldOrVariableDidNotFound">
+      <summary>
+            Field or variable did not found.
+            </summary>
+    </member>
+    <member name="F:C1.ExpressionEditor.Engine.ErrorType.IdentifierExpected">
+      <summary>
+            Identifier expected.
+            </summary>
+    </member>
+    <member name="F:C1.ExpressionEditor.Engine.ErrorType.SyntaxError">
+      <summary>
+            Syntax error.
+            </summary>
+    </member>
+    <member name="F:C1.ExpressionEditor.Engine.ErrorType.TooFewParameters">
+      <summary>
+            Too few parameters.
+            </summary>
+    </member>
+    <member name="F:C1.ExpressionEditor.Engine.ErrorType.TooManyParameters">
+      <summary>
+            Too many parameters.
+            </summary>
+    </member>
+    <member name="F:C1.ExpressionEditor.Engine.ErrorType.UnbalancedParenthesis">
+      <summary>
+            Unbalanced parenthesis.
+            </summary>
+    </member>
+    <member name="F:C1.ExpressionEditor.Engine.ErrorType.UnexpectedError">
+      <summary>
+            Unexpected error.
+            </summary>
+    </member>
+    <member name="F:C1.ExpressionEditor.Engine.ErrorType.UnexpectedIdentifier">
+      <summary>
+            Unexpected identifier.
+            </summary>
+    </member>
+    <member name="F:C1.ExpressionEditor.Engine.ErrorType.CanNotFindFinalBracket">
+      <summary>
+            Can't find final bracket.
+            </summary>
+    </member>
+    <member name="F:C1.ExpressionEditor.Engine.ErrorType.ComparisonError">
+      <summary>
+            Error comparing values.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.C1ExpressionEditor">
+      <summary>
+            The <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" /> control is used to dynamically produce an expression and get 
+            the result of the expression. It supports DataBinding.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditor.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" /> control.
+            </summary>
+    </member>
+    <member name="E:C1.Win.ExpressionEditor.C1ExpressionEditor.StylesChanged">
+      <summary>
+            Occurs when theme or some style has changed.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditor.OnThemeChanged(System.EventArgs)">
+      <summary>
+            Rises the <see cref="E:C1.Win.ExpressionEditor.C1ExpressionEditor.StylesChanged" /> event.
+            </summary>
+    </member>
+    <member name="E:C1.Win.ExpressionEditor.C1ExpressionEditor.ExpressionChanged">
+      <summary>
+            Occurs when expression string changed.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditor.OnExpressionChanged(System.EventArgs)">
+      <summary>
+            Rises the <see cref="E:C1.Win.ExpressionEditor.C1ExpressionEditor.ExpressionChanged" /> event.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditor.Theme">
+      <summary>
+            Gets or sets theme.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditor.GetErrors">
+      <summary>
+            Gets list of <see cref="T:C1.ExpressionEditor.Engine.ErrorInfo" /> objects.
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditor.SetCustomEngine(C1.ExpressionEditor.Engine.IEngine,C1.ExpressionEditor.Engine.IExpressionLexer)">
+      <summary>
+            Sets a custom engine to <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" />.
+            </summary>
+      <param name="engine">Implements <see cref="T:C1.ExpressionEditor.Engine.IEngine" /> interface.</param>
+      <param name="lexer">Implements <see cref="T:C1.ExpressionEditor.Engine.IExpressionLexer" /> interface.</param>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditor.ResetEngine">
+      <summary>
+            Resets a engine of <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" /> to default.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditor.IsValid">
+      <summary>
+            Gets value that indicates whether the expression is valid.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditor.UnderlineErrors">
+      <summary>
+            Gets or sets a value indicating whether to underline errors.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditor.SyntaxHighlighting">
+      <summary>
+            Gets or sets a value indicating whether to highlight syntax.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditor.Expression">
+      <summary>
+            Gets or sets expression string.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditor.ItemContext">
+      <summary>
+            Gets or sets the object used as the context for evaluating an expression.
+            </summary>
+      <remarks>
+            If the DataSource property represents collection of objects, then ItemContext usually represents one of items from this collection.
+            In most cases it is done automatically by the ExpressionEditor control and doesn't require any custom code.
+            Please only use this property if you see problems with default behavior.
+            </remarks>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditor.DataSource">
+      <summary>
+            Gets or sets the object used as the data source.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditor.DataMember">
+      <summary>
+            Gets or sets the specific list in a <see cref="P:C1.Win.ExpressionEditor.C1ExpressionEditor.DataSource" /> object that the grid should display.
+            </summary>
+      <remarks>
+        <para>If a <see cref="P:C1.Win.ExpressionEditor.C1ExpressionEditor.DataSource" /> contains multiple sources of data, you should set the 
+            <see cref="P:C1.Win.ExpressionEditor.C1ExpressionEditor.DataMember" /> property to one of the sources.</para>
+        <para>For example, if the DataSource is a <see cref="T:System.Data.DataSet" /> contains three tables named Customers, 
+            Orders, and OrderDetails, you must specify one of the tables to bind to.</para>
+        <para>If the <see cref="T:System.Data.DataSet" /> contains only one <see cref="T:System.Data.DataTable" />, you may set the 
+            DataMember property to an empty string.</para>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditor.TryEvaluate(System.Object@)">
+      <summary>
+            Gets a result of expression. A return value indicates whether the evaluate succeeded or failed.
+            </summary>
+      <param name="result">This parameter is passed uninitialized; any value originally supplied in result will be overwritten.</param>
+      <returns>true if expression was evaluated successfully; otherwise, false.</returns>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditor.Evaluate">
+      <summary>
+            Gets result of the expression.
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditor.ShowAboutBox">
+      <summary>
+            Shows the About Box for an instance of C1ExpressionEditor.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditor.IntelliAutoCompletionEnabled">
+      <summary>
+            Gets or sets a value indicating if the IntelliAutoCompletion is enabled.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditor.IntelliErrorsEnabled">
+      <summary>
+            Gets or sets a value indicating if the IntelliErrors is enabled.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditor.IntelliDescriptionEnabled">
+      <summary>
+            Gets or sets a value indicating if the IntelliDescription is enabled.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditor.IntelliSyntaxHighlightingEnabled">
+      <summary>
+            Gets or sets a value indicating if the IntelliSyntaxHighlighting is enabled.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditor.ShowErrorBox">
+      <summary>
+            Gets or sets a value that indicates whether to show error box under the editor.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditor.DefaultSize">
+      <summary>
+            Gets the default size of the control.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditor.OnVisibleChanged(System.EventArgs)">
+      <summary>
+            Raises the System.Windows.Forms.Control.VisibleChanged event.
+            </summary>
+      <param name="e"> An System.EventArgs that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditor.OnRightToLeftChanged(System.EventArgs)">
+      <summary>
+             Raises the System.Windows.Forms.Control.RightToLeftChanged event.
+            </summary>
+      <param name="e">An System.EventArgs that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditor.OnBindingContextChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.BindingContextChanged" /> event.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditor.BeginInit">
+      <summary>
+            Signals the object that initialization is starting.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditor.EndInit">
+      <summary>
+            Signals the object that initialization is complete.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.C1ExpressionEditorPanel">
+      <summary>
+            The <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditorPanel" /> control provides С1.Win.ExpressionEditor.C1ExpressionEditor
+            by panel of useful tools. It provides a list of predefined and dynamic elements that can be used in expression.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditorPanel.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditorPanel" /> control.
+            </summary>
+    </member>
+    <member name="E:C1.Win.ExpressionEditor.C1ExpressionEditorPanel.StylesChanged">
+      <summary>
+            Occurs when theme or some style has changed.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditorPanel.OnThemeChanged(System.EventArgs)">
+      <summary>
+            Rises the <see cref="E:C1.Win.ExpressionEditor.C1ExpressionEditorPanel.StylesChanged" /> event.
+            </summary>
+    </member>
+    <member name="E:C1.Win.ExpressionEditor.C1ExpressionEditorPanel.EditorChanged">
+      <summary>
+            Occurs when ExpressionEditor property changed.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditorPanel.OnEditorChanged(System.EventArgs)">
+      <summary>
+            Rises the <see cref="E:C1.Win.ExpressionEditor.C1ExpressionEditorPanel.EditorChanged" /> event.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditorPanel.Theme">
+      <summary>
+            Gets or sets theme.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditorPanel.ExpressionEditor">
+      <summary>
+            Gets or sets related expression editor control.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditorPanel.ShowAboutBox">
+      <summary>
+            Shows the About Box for an instance of C1ExpressionEditorPanel.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.C1ExpressionEditorPanel.DefaultSize">
+      <summary>
+            Gets the default size of the control.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.C1ExpressionEditorPanel.OnRightToLeftChanged(System.EventArgs)">
+      <summary>
+             Raises the System.Windows.Forms.Control.RightToLeftChanged event.
+            </summary>
+      <param name="e">An System.EventArgs that contains the event data.</param>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.ExpressionEditorForm">
+      <summary>
+            Represents a window or dialog with expression editor and expression editor panel on it.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorForm.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:C1.Win.ExpressionEditor.ExpressionEditorForm" />.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.ExpressionEditorForm.Expression">
+      <summary>
+            Gets or sets expression string.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.ExpressionEditorForm.DataSource">
+      <summary>
+            Gets or sets the object used as the data source.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.ExpressionEditorForm.DataMember">
+      <summary>
+            Gets or sets the specific list in a DataSource object.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.ExpressionEditorForm.ShowApplyButton">
+      <summary>
+             Gets or sets a value indicating whether the Apply button is visible.
+            </summary>
+    </member>
+    <member name="E:C1.Win.ExpressionEditor.ExpressionEditorForm.Apply">
+      <summary>
+            Occurs when the Apply button is clicked.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorForm.OnApply">
+      <summary>
+            Rises the <see cref="E:C1.Win.ExpressionEditor.ExpressionEditorForm.Apply" /> event.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorForm.OnShown(System.EventArgs)">
+      <summary>
+            Raises the System.Windows.Forms.Form.Shown event.
+            </summary>
+      <param name="e">A System.EventArgs that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorForm.Dispose(System.Boolean)">
+      <summary> 
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.ExpressionEditorCollection">
+      <summary>
+            Represents a collection of <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" /> object.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorCollection.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:C1.Win.ExpressionEditor.ExpressionEditorCollection" /> control.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.ExpressionEditorCollection.ExpressionColectionEventHandler">
+      <summary>
+            Represents the method that will handle the <see cref="E:C1.Win.ExpressionEditor.ExpressionEditorCollection.ExpressionChanged" /> event.
+            </summary>
+      <param name="sender">Object that fired the event.</param>
+      <param name="e">
+        <see cref="T:C1.Win.ExpressionEditor.ExpressionEditorCollection.ExpressionCollectionEventArgs" /> object that contains the event data.</param>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.ExpressionEditorCollection.ExpressionCollectionEventArgs">
+      <summary>
+            Provides data for the <see cref="E:C1.Win.ExpressionEditor.ExpressionEditorCollection.ExpressionChanged" /> event.
+            </summary>
+    </member>
+    <member name="F:C1.Win.ExpressionEditor.ExpressionEditorCollection.ExpressionCollectionEventArgs.Column">
+      <summary>
+            Related column name.
+            </summary>
+    </member>
+    <member name="F:C1.Win.ExpressionEditor.ExpressionEditorCollection.ExpressionCollectionEventArgs.Expression">
+      <summary>
+            Expression value.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorCollection.ExpressionCollectionEventArgs.#ctor(System.String,System.String)">
+      <summary>
+            Initializes a new instance of the ExpressionCollectionEventArgs class.
+            </summary>
+      <param name="columnName">related column name.</param>
+      <param name="expression">expression value.</param>
+    </member>
+    <member name="E:C1.Win.ExpressionEditor.ExpressionEditorCollection.ExpressionChanged">
+      <summary>
+            Occurs when expression string of any item changed.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorCollection.OnExpressionChanged(C1.Win.ExpressionEditor.ExpressionEditorCollection.ExpressionCollectionEventArgs)">
+      <summary>
+            Rises the <see cref="E:C1.Win.ExpressionEditor.ExpressionEditorCollection.ExpressionChanged" /> event.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.ExpressionEditorCollection.DataMember">
+      <summary>
+            Gets or sets DataMember for data source of ExpressionEditor in the collection.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.ExpressionEditorCollection.DataSource">
+      <summary>
+            Gets or sets the data source with which ExpressionEditor will work.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.ExpressionEditorCollection.ItemContext">
+      <summary>
+            Item context for current evaluation.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.ExpressionEditorCollection.Item(System.String)">
+      <summary>
+            Gets or sets the item with specified name.
+            </summary>
+      <param name="name">specified name.</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.ExpressionEditorCollection.Columns">
+      <summary>
+            Gets list of column names.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorCollection.Contains(System.String)">
+      <summary>
+             Determines whether the <see cref="T:C1.Win.ExpressionEditor.ExpressionEditorCollection" /> contains <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" /> 
+             object associated with the specified column.
+            </summary>
+      <param name="columnName">specified column name.</param>
+      <returns>
+            true if the <see cref="T:C1.Win.ExpressionEditor.ExpressionEditorCollection" /> contains an <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" />
+            object associated with the specified column; otherwise, false.
+            </returns>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorCollection.Update(System.String,System.String)">
+      <summary>
+            Updates the expression for the specified column. Adds new <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" /> 
+            object into collection if needed.
+            </summary>
+      <param name="columnName">specified column name.</param>
+      <param name="expression">new expression string.</param>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorCollection.Add(System.String)">
+      <summary>
+            Adds new <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" /> object into collection.
+            </summary>
+      <param name="columnName">specified column name.</param>
+      <returns>returns added <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" /> object</returns>
+      <exception cref="T:System.Data.DuplicateNameException">
+      </exception>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorCollection.Remove(System.String)">
+      <summary>
+            Removes <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" /> object associated with the specified column.
+            </summary>
+      <param name="columnName">specified column name.</param>
+      <returns>returns a value indicating if the <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" /> object was deleted.</returns>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorCollection.Evaluate(System.String)">
+      <summary>
+            Evaluate expressions of all <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" />.
+            </summary>
+      <param name="columnName">specified column name.</param>
+      <returns>returns result of an evaluation.</returns>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorCollection.Rename(System.String,System.String)">
+      <summary>
+            Rename column associated with some of <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" /> objects.
+            </summary>
+      <param name="oldColumnName">old column name.</param>
+      <param name="newColumnName">new column name.</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorCollection.OpenExpressionEditorForm(System.String,System.String,System.Boolean,System.Nullable{System.Drawing.Point})">
+      <summary>
+            Opens ExpressionEditorForm to edit expression of C1ExpressionEditor with specified column name.
+            </summary>
+      <param name="column">specified column name.</param>
+      <param name="caption">dialog caption.</param>
+      <param name="showApplyButton">the value determines whether to show the Apply button.</param>
+      <param name="location">the initial position of the dialog.</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorCollection.Dispose(System.Boolean)">
+      <summary>
+            Releases all unmanaged resources.
+            </summary>
+      <param name="disposing">
+      </param>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.ExpressionEditorCollection.Dispose">
+      <summary>
+            Releases all unmanaged resources.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.Localization.Strings">
+      <summary>
+            The <see cref="T:C1.Win.ExpressionEditor.Localization.Strings" /> class contains static properties used for localization.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.Localization.Strings.ResourceManager">
+      <summary>
+            The <see cref="P:C1.Win.ExpressionEditor.Localization.Strings.ResourceManager" /> object used for lookup resources.
+            </summary>
+      <remarks>Set this property to the valid value if 
+            you define resources in a Custom Control assembly.</remarks>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.Localization.Strings.UICulture">
+      <summary>
+            Returns default <see cref="T:System.Globalization.CultureInfo" /> object used as fallback culture.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.Model.DataBindingException">
+      <summary>
+            Represents errors that occur during binding C1ExpressionEditor to data source.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.Model.DataBindingException.#ctor(System.String)">
+      <summary>
+            Initializes a new instance of the C1.Win.ExpressionEditor.Model.DataBindingException class.
+            </summary>
+      <param name="message">The message that describes the error.</param>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.BaseItemStyle">
+      <summary>
+            Base style with basic properties.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.BaseItemStyle.BackColor">
+      <summary>
+            Gets or sets the <see cref="T:System.Drawing.Color" /> used to paint the background.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.BaseItemStyle.ForeColor">
+      <summary>
+            Gets or sets the <see cref="T:System.Drawing.Color" /> used to paint the text.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.BaseItemStyle.BorderColor">
+      <summary>
+            Gets or sets the <see cref="T:System.Drawing.Color" /> used to draw the border around the element.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.BasePropStyle">
+      <summary>
+            Base style with basic properties.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.BasePropStyle.Padding">
+      <summary>
+            Gets or sets the thickness of the padding between the element edges and its content.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.BasePropStyle.Margins">
+      <summary>
+            Gets or sets the thickness of the margins around the element.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.BasePropStyle.BackColor">
+      <summary>
+            Gets or sets the <see cref="T:System.Drawing.Color" /> used to paint the background.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.BasePropStyle.Border">
+      <summary>
+            Gets or sets the thickness of the border around the element.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.BasePropStyle.BorderColor">
+      <summary>
+            Gets or sets the <see cref="T:System.Drawing.Color" /> used to draw the border around the element.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.PopupItemStyle">
+      <summary>
+            Gets or sets <see cref="T:C1.Win.ExpressionEditor.UI.PopupItemStyle" /> contains display attributes that 
+            determine the appearance of popup item on the screen.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.PopupItemStyle.Font">
+      <summary>
+            Gets or sets text font of element.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.PopupItemStyle.Padding">
+      <summary>
+            Gets or sets the thickness of the padding between the element edges and its content.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.PopupItemStyle.Margins">
+      <summary>
+            Gets or sets the thickness of the margins around the element.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.PopupItemStyle.Border">
+      <summary>
+            Gets or sets the thickness of the border around the element.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.PopupItemStyle.Hot">
+      <summary>
+            Gets or sets the style to be used when item is hot.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.PopupItemStyle.Selected">
+      <summary>
+            Gets or sets the style to be used when item is selected.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.BasePopupItemStyle">
+      <summary>
+            Base style for <see cref="T:C1.Win.ExpressionEditor.UI.PopupItemStyle" /> styles.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.PopupStyle">
+      <summary>
+            Gets or sets <see cref="T:C1.Win.ExpressionEditor.UI.PopupStyle" /> contains display attributes that 
+            determine the general appearance of popup on the screen.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.PopupStyle.Margins">
+      <summary>
+            Do not use this property.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.SyntaxTextStyle">
+      <summary>
+            The <see cref="T:C1.Win.ExpressionEditor.UI.SyntaxTextStyle" /> class contains display attributes that 
+            determine the appearance of syntax text on the screen.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.SyntaxTextStyle.Empty">
+      <summary>
+            Gets empty <see cref="T:C1.Win.ExpressionEditor.UI.SyntaxTextStyle" /> object.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.SyntaxTextStyle.ForeColor">
+      <summary>
+            Gets or sets the <see cref="T:System.Drawing.Color" /> used to paint the text.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.SyntaxTextStyle.BackColor">
+      <summary>
+            Gets or sets the <see cref="T:System.Drawing.Color" /> used to paint the background.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.BaseStyle">
+      <summary>
+            Base style for all styles in <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" />.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.BaseStyle.Name">
+      <summary>
+            Gets or sets the style name.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.BaseTextStyle">
+      <summary>
+            Base style for all text element styles in <see cref="T:C1.Win.ExpressionEditor.C1ExpressionEditor" />.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.BaseTextStyle.Font">
+      <summary>
+            Gets or sets text font of element.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.BaseTextStyle.ForeColor">
+      <summary>
+            Gets or sets the <see cref="T:System.Drawing.Color" /> used to paint the text.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.BaseTheme">
+      <summary>
+            Base class for ExpressionEditor themes.
+            </summary>
+    </member>
+    <member name="E:C1.Win.ExpressionEditor.UI.BaseTheme.PropertyChanged">
+      <summary>
+            Fires when any property is changed.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.BaseTheme.OnPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+      <summary>
+      </summary>
+      <param name="sender">
+      </param>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.BaseTheme.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:C1.Win.ExpressionEditor.UI.BaseTheme" /> control.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.BaseTheme.#ctor(C1.Win.ExpressionEditor.UI.BaseTheme)">
+      <summary>
+            Initializes a new instance of the <see cref="T:C1.Win.ExpressionEditor.UI.BaseTheme" /> control.
+            </summary>
+      <param name="prototype">Prototype.</param>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.BaseTheme.Dispose">
+      <summary>
+            Destructor.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.BaseTheme.Name">
+      <summary>
+            Gets or sets the theme name.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.BaseTheme.GetStyle(System.String)">
+      <summary>
+            Get style by name.
+            </summary>
+      <param name="name">Style name.</param>
+      <returns>
+        <see cref="T:C1.Framework.Style" /> object.</returns>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.BaseTheme.SetStyle(C1.Framework.Style,System.String)">
+      <summary>
+            Set existing style or add new.
+            </summary>
+      <param name="value">Style.</param>
+      <param name="name">Style name.</param>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.BaseTheme.Reset">
+      <summary>
+            Reset all styles to default.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.BaseTheme.SubscribeOnStyleChanged(C1.Framework.Style)">
+      <summary>
+            To subscribe to events of changing styles.
+            </summary>
+      <param name="item">Style to subscribe.</param>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.BaseTheme.UnsubscribeOnStyleChanged(C1.Framework.Style)">
+      <summary>
+            To unsubscribe to events of changing styles.
+            </summary>
+      <param name="item">Style to unsubscribe.</param>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.BaseTheme.ToString">
+      <summary>
+            Returns the value of a <see cref="P:C1.Framework.Theme.Name" /> property.
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.BaseTheme.ComponentType">
+      <summary>
+            Component type.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.ErrorBarStyle">
+      <summary>
+            Gets or sets <see cref="T:C1.Win.ExpressionEditor.UI.ErrorBarStyle" /> contains display attributes that 
+            determine the appearance of text editor element on the screen.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.SyntaxStyles">
+      <summary>
+            Gets or sets <see cref="T:C1.Win.ExpressionEditor.UI.SyntaxStyles" /> contains colors that determine the highlighting of syntax.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.SyntaxStyles.#ctor(C1.Win.ExpressionEditor.UI.SyntaxStyles)">
+      <summary>
+            Initializes a new instance of the <see cref="T:C1.Win.ExpressionEditor.UI.ExpressionEditorTheme" /> object.
+            </summary>
+      <param name="prototype">Prototype.</param>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.SyntaxStyles.Underline">
+      <summary>
+            Gets or sets error underline color.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.SyntaxStyles.Operator">
+      <summary>
+            Gets or sets operator style.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.SyntaxStyles.Function">
+      <summary>
+            Gets or sets function style.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.SyntaxStyles.Constant">
+      <summary>
+            Gets or sets constant style.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.SyntaxStyles.Integer">
+      <summary>
+            Gets or sets style of a numbers.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.SyntaxStyles.String">
+      <summary>
+            Gets or sets string style.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.SyntaxStyles.Field">
+      <summary>
+            Gets or sets field style.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.SyntaxStyles.Merge(C1.Win.ExpressionEditor.UI.SyntaxStyles)">
+      <summary>
+            Merges the current style with the specified prototype style.
+            </summary>
+      <param name="prototype">specified prototype style.</param>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.SyntaxStyles.Reset">
+      <summary>
+            Reset all styles to default.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.TooltipStyle">
+      <summary>
+            Gets or sets <see cref="T:C1.Win.ExpressionEditor.UI.TooltipStyle" /> contains display attributes that 
+            determine the appearance of tooltip on the screen.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.TooltipStyle.Margins">
+      <summary>
+            Do not use this property.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.ButtonPanelStyle">
+      <summary>
+            The <see cref="T:C1.Win.ExpressionEditor.UI.ButtonPanelStyle" /> class contains display attributes that 
+            determine the appearance of button panel element on the screen.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ButtonPanelStyle.HorizontalAlignment">
+      <summary>
+            Gets or sets how elements should be aligned in the horizontal direction.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.EditorStyle">
+      <summary>
+            Gets or sets <see cref="T:C1.Win.ExpressionEditor.UI.EditorStyle" /> contains display attributes that 
+            determine the appearance of text editor element on the screen.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.ExpressionEditorTheme">
+      <summary>
+            The <see cref="T:C1.Win.ExpressionEditor.UI.ExpressionEditorTheme" /> class represents the theme for the C1ExpressionEditor control 
+            which contains display attributes that determine the appearance of control. 
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.ExpressionEditorTheme.#ctor(C1.Win.ExpressionEditor.UI.ExpressionEditorTheme)">
+      <summary>
+            Initializes a new instance of the <see cref="T:C1.Win.ExpressionEditor.UI.ExpressionEditorTheme" /> object.
+            </summary>
+      <param name="prototype">Prototype.</param>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.ExpressionEditorTheme.Dispose">
+      <summary>
+            Destructor.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ExpressionEditorTheme.SyntaxStyles">
+      <summary>
+            Gets or sets <see cref="P:C1.Win.ExpressionEditor.UI.ExpressionEditorTheme.SyntaxStyles" /> contains colors that determine the highlighting of syntax.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ExpressionEditorTheme.Popup">
+      <summary>
+            Gets or sets <see cref="T:C1.Win.ExpressionEditor.UI.PopupStyle" /> contains display attributes that 
+            determine the appearance of popup element on the screen.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ExpressionEditorTheme.PopupItem">
+      <summary>
+            Gets or sets <see cref="T:C1.Win.ExpressionEditor.UI.PopupItemStyle" /> contains display attributes that 
+            determine the appearance of popup item element on the screen.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ExpressionEditorTheme.Editor">
+      <summary>
+            Gets or sets <see cref="T:C1.Win.ExpressionEditor.UI.EditorStyle" /> contains display attributes that 
+            determine the appearance of text editor element on the screen.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ExpressionEditorTheme.ErrorBar">
+      <summary>
+            Gets or sets <see cref="T:C1.Win.ExpressionEditor.UI.ErrorBarStyle" /> contains display attributes that 
+            determine the appearance of error bar element on the screen.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ExpressionEditorTheme.Tooltip">
+      <summary>
+            Gets or sets <see cref="T:C1.Win.ExpressionEditor.UI.TooltipStyle" /> contains display attributes that 
+            determine the appearance of tooltip on the screen.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.ExpressionEditorTheme.Reset">
+      <summary>
+            Reset all ExpressionEditor styles to default.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.OperandsStyle">
+      <summary>
+            The <see cref="T:C1.Win.ExpressionEditor.UI.OperandsStyle" /> class contains display attributes that 
+            determine the appearance of operands elements on the screen.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.OperandsStyle.Font">
+      <summary>
+            Gets or sets text font of element.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.OperandsStyle.Padding">
+      <summary>
+            Gets or sets the thickness of the padding between the element edges and its content.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.OperandsStyle.Margins">
+      <summary>
+            Gets or sets the thickness of the margins around the element.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.OperandsStyle.Border">
+      <summary>
+            Gets or sets the thickness of the border around the element.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.OperandsStyle.Hot">
+      <summary>
+            Gets or sets the style to be used when item is hot.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.OperandsStyle.Pressed">
+      <summary>
+            Gets or sets the style to be used when item is pressed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.OperandsStyle.HotPressed">
+      <summary>
+            Gets or sets the style to be used when item is hot and pressed.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.BaseOperandsStyle">
+      <summary>
+            Base style for <see cref="T:C1.Win.ExpressionEditor.UI.OperandsStyle" /> styles.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.DescriptionStyle">
+      <summary>
+            The <see cref="T:C1.Win.ExpressionEditor.UI.DescriptionStyle" /> class contains display attributes that 
+            determine the appearance of description element on the screen.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.ExpressionEditorPanelTheme">
+      <summary>
+            The <see cref="T:C1.Win.ExpressionEditor.UI.ExpressionEditorPanelTheme" /> class represents the theme for the C1ExpressionEditorPanel control 
+            which contains display attributes that determine the appearance of control. 
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.ExpressionEditorPanelTheme.#ctor(C1.Win.ExpressionEditor.UI.ExpressionEditorPanelTheme)">
+      <summary>
+            Initializes a new instance of the <see cref="T:C1.Win.ExpressionEditor.UI.ExpressionEditorTheme" /> object.
+            </summary>
+      <param name="prototype">Prototype.</param>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ExpressionEditorPanelTheme.ImageButton">
+      <summary>
+            Gets <see cref="T:C1.Win.ExpressionEditor.UI.ImageButtonStyle" /> contains display attributes that 
+            determine the appearance of ImageButton on the screen.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ExpressionEditorPanelTheme.ButtonPanel">
+      <summary>
+            Gets or sets <see cref="T:C1.Win.ExpressionEditor.UI.ButtonPanelStyle" /> contains display attributes that 
+            determine the appearance of button panel element on the screen.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ExpressionEditorPanelTheme.Description">
+      <summary>
+            Gets or sets <see cref="T:C1.Win.ExpressionEditor.UI.DescriptionStyle" /> contains display attributes that 
+            determine the appearance of description element on the screen.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ExpressionEditorPanelTheme.Operands">
+      <summary>
+            Gets or sets <see cref="T:C1.Win.ExpressionEditor.UI.OperandsStyle" /> contains display attributes that 
+            determine the appearance of operands panel element on the screen.
+            </summary>
+    </member>
+    <member name="M:C1.Win.ExpressionEditor.UI.ExpressionEditorPanelTheme.Reset">
+      <summary>
+            Reset all ExpressionEditor styles to default.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.ImageButtonStyle">
+      <summary>
+            The <see cref="T:C1.Win.ExpressionEditor.UI.ImageButtonStyle" /> class contains display attributes that 
+            determine the appearance of ImageButton elements on the screen.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ImageButtonStyle.Padding">
+      <summary>
+            Gets or sets the thickness of the padding between the element edges and its content.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ImageButtonStyle.Margins">
+      <summary>
+            Gets or sets the thickness of the margins around the element.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ImageButtonStyle.Border">
+      <summary>
+            Gets or sets the thickness of the border around the element.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ImageButtonStyle.Hot">
+      <summary>
+            Gets or sets the style to be used when the element is hot.
+            </summary>
+    </member>
+    <member name="P:C1.Win.ExpressionEditor.UI.ImageButtonStyle.Pressed">
+      <summary>
+            Gets or sets the style to be used when the element is pressed.
+            </summary>
+    </member>
+    <member name="T:C1.Win.ExpressionEditor.UI.BaseImageButtonStyle">
+      <summary>
+            Base style for <see cref="T:C1.Win.ExpressionEditor.UI.ImageButtonStyle" /> styles.
+            </summary>
+    </member>
+  </members>
+</doc>

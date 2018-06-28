@@ -759,7 +759,7 @@ SkipBranch:  '10-16-13
                 '8888888888888888888888888888888888888888888888888888888888888888 '05-05-15 JTC Chg quote.Sell as SellQ
                 If ExcelQuoteFU = True Then '04-28-14 JTC Public Bool frmQuoteRpt.cboSortPrimarySeq.Text = "Excel Quote FollowUp" Then '04-22-15 JTC 02-22-12
                     '04-30-15 No SLS1 strSql = "SELECT QS.SLSCode as SLS1, projectcust.QuoteCode, projectcust.NCode, projectcust.SLSCode, projectcust.Typec, projectcust.Sell, projectcust.Comments, projectcust.LeadTime, projectcust.FirmName, quote.Sell as Sell, quote.JobName, quote.EntryDate, quote.BidDate, quote.SLSQ, quote.Status, quote.RetrCode, quote.SelectCode, quote.CSR, quote.TypeOfJob, quote.TypeOfJob as Architect, quote.TypeOfJob as Engineer, quote.TypeOfJob as Distributor, quote.TypeOfJob as Contractor, quote.quoteid, projectcust.QUOTETODATE , NameDetail.BUsinessType  " '04-27-15  NameDetail.BUsinessType, 
-                    strSql = "SELECT projectcust.QuoteCode, projectcust.NCode, projectcust.SLSCode, projectcust.Typec, projectcust.Sell, projectcust.Comments, projectcust.LeadTime, projectcust.FirmName, projectcust.SLScode, quote.Sell as SellQ, quote.JobName, quote.EntryDate, quote.BidDate, quote.SLSQ, quote.Status, quote.RetrCode, quote.SelectCode, quote.CSR, quote.TypeOfJob, quote.TypeOfJob as Architect, quote.TypeOfJob as Engineer, quote.TypeOfJob as Distributor, quote.TypeOfJob as Contractor, quote.quoteid, projectcust.QUOTETODATE , NameDetail.BUsinessType, quote.SpecCross as SpecCrossH " '11-11-15 added quote.SpecCross '04-27-15  NameDetail.BUsinessType, 
+                    strSql = "SELECT projectcust.QuoteCode, projectcust.Got, projectcust.NCode, projectcust.SLSCode, projectcust.Typec, projectcust.Sell, projectcust.Comments, projectcust.LeadTime, projectcust.FirmName, projectcust.SLScode, quote.Sell as SellQ, quote.JobName, quote.EntryDate, quote.BidDate, quote.SLSQ, quote.Status, quote.RetrCode, quote.SelectCode, quote.CSR, quote.TypeOfJob, quote.TypeOfJob as Architect, quote.TypeOfJob as Engineer, quote.TypeOfJob as Distributor, quote.TypeOfJob as Contractor, quote.quoteid, projectcust.QUOTETODATE , NameDetail.BUsinessType, quote.SpecCross as SpecCrossH " '11-11-15 added quote.SpecCross '04-27-15  NameDetail.BUsinessType,  06-28-18 projectcust.Got
                     strSql += " FROM Quote INNER JOIN projectcust ON Quote.QuoteID = projectcust.QuoteID  AND TYPEC = 'C'" '04-17-12 ADD TYPEC <> M
                     'No strSql += " LEFT JOIN QUTSLSSPLIT QS ON Quote.QuoteID = QS.QuoteID AND QS.slsnumber = 1 "
                     strSql += " INNER JOIN namedetail ON namedetail.code  = projectcust.ncode " '04-27-15 
@@ -1334,7 +1334,7 @@ IncSPEC:        Resp = MessageBox.Show("Do you want to include Specifiers?" & vb
                     Dim RString As String = " and  projectcust.Sell >= '" & frmQuoteRpt.txtStartQuoteAmt.Text & "'" '04-30-15
                     tmpSQL = strSql.Replace(RString, "")
                 End If
-                tmpSQL = tmpSQL.Replace("TYPEC = 'C'", " (TypeC = 'A' or TypeC = 'E' or TypeC = 'T' )") '("TYPEC = 'C'", " (TypeC = 'A' or TypeC = 'E' or TypeC = 'L' or TypeC = 'T' or TypeC = 'S')")
+                tmpSQL = tmpSQL.Replace("TYPEC = 'C'", " (TypeC = 'A' or TypeC = 'E' or TypeC = 'L' or TypeC = 'T' or TypeC = 'S')") '06-28-18 was  ("TYPEC = 'C'", " (TypeC = 'A' or TypeC = 'E' or TypeC = 'T' )") which leaves off specifiers S
                 daSESCO.SelectCommand = New MySqlCommand(tmpSQL, myConnection)
                 daSESCO.Fill(dsSESCOSpecifiers, "QuoteRealLU")
             End If
@@ -5877,6 +5877,8 @@ Exit_Done:  '#End
             Dim ARCH As String = ""
             Dim ENG As String = ""
             Dim CONTR As String = ""
+            Dim LtgDesigner As String = "" '06-28-18
+            Dim Specifier As String = "" '06-28-18
             Dim Comments As String = ""
             Dim SelectCode As String = ""
             Dim CSR As String = ""
@@ -5884,6 +5886,7 @@ Exit_Done:  '#End
             Dim NameCode As String = ""
             Dim LeadTime As String = ""
             Dim Contact As String = ""
+            Dim GotNotGot As String = "" '06-28-18
             Dim SKIPDUPLICATECNT As Integer = 0
             Try
                 objExcel = CreateObject("Excel.Application")
@@ -5904,8 +5907,8 @@ Exit_Done:  '#End
                 ''04-24-15 JTC add QuoteCode, StatuscboSortPrimarySeq.Text = "Excel Quote FollowUp" 
                 'ExcelHdgArrayProd = New String() {"", "Project Name", "QuoteCode", "RetrCode", "Status", "ARCHITECT", "ENGINEER", "SLS1", "SLSQ", "Quote To:", "QT-CONTACT", "CONTRACTOR", "MISC", "QT-AMT", "BIDDATE"}
                 'ExcelDataArrayProd = New String() {"", "JobName", "QuoteCode", "RetrCode", "Status", "Architect", "Engineer", "SLSCode", "SLSQ", "Distributor", "Comments", "Contractor", "LeadTime", "Sell", "BidDate"}
-                ExcelHdgArrayProd = New String() {"", "Project Name", "QuoteCode", "RetrCode", "Status", "BidDate", "SLSQT", "SLSQ", "Sell", "Quote To:", "TypeC", "QT-CONTACT", "CONTRACTOR", "ARCHITECT", "ENGINEER", "LeadTime"} '04-24-15 JTC
-                ExcelDataArrayProd = New String() {"", "JobName", "QuoteCode", "RetrCode", "Status", "BidDate", "SLSCode", "SLSQ", "Sell", "Distributor", "TypeC", "Comments", "Contractor", "Architect", "Engineer", "LeadTime"} '04-24-15 JTC
+                ExcelHdgArrayProd = New String() {"", "Project Name", "QuoteCode", "RetrCode", "Status", "Got", "BidDate", "SLSQT", "SLSQ", "Sell", "Quote To:", "TypeC", "QT-CONTACT", "CONTRACTOR", "ARCHITECT", "ENGINEER", "Lighting Designer", "Specifier", "LeadTime"} '04-24-15 JTC 06-28-18 ,"Lighting Designer", "Specifier", "Got"
+                ExcelDataArrayProd = New String() {"", "JobName", "QuoteCode", "RetrCode", "Status", "Got", "BidDate", "SLSCode", "SLSQ", "Sell", "Distributor", "TypeC", "Comments", "Contractor", "Architect", "Engineer", "Lighting Designer", "Specifier", "LeadTime"} '04-24-15 JTC 06-28-18 ,"Lighting Designer", "Specifier",  "Got"
                 'ProjectCustID, ProjectID, QuoteCode, NCode, FirmName, ContactName, SLSCode, Got, Typec, MFGQuoteNumber, Cost, Sell, Comm, Overage, QuoteToDate, OrdDate, NotGot, Comments, SPANumber, SpecCross, LotUnit, LPCost, LPSell, LPComm, LampsIncl, Terms, FOB, QuoteID, BranchCode, LeadTime, LastChgDate, LastChgBy, Requested, FileName, QuoteID, ProjectID, QuoteCode, EntryDate, BidDate, BidTime, SLSQ, LotUnit, Status, StockJob, EnteredBy, CSR, LastChgBy, Cost, Sell, Comm, HeaderTab, RetrCode, LinesYN, SelectCode, Password, LPCost, LPSell, PRADate, EstDelivDate, FollowBy, OrderEntryBy, ShipmentBy, Remarks, LightingGear, Dimming, LastDateTime, BidBoard, BranchCode, Address, Address2, City, State, Zip, Country, Location, LeadTime, LockedBy, SourceQuote, SpecCross, Probability, MarketSegment, TypeOfJob, SpecCredit, SubmCover, SubmSinglePDF, JobName, LastSaveDate, LockOut, DISTRIBUTOR, Engineer, Architect
                 'ExcelDataArrayProd = New String() {"", "JobName", "RetrCode", "Architect",
                 '06-03-11 Retriev not   SPEC CODE            ARC              ENG                 SLS1                  SLSQ               DIST               Comment                 CONT             MISC  LeadTime=23                   AMT                              BID DATE
@@ -5924,7 +5927,7 @@ ST:
                 For Each drQToRow In dsQuoteRealLU.QuoteRealLU.Rows
                     '                  04-24-15
                     ProjectName = "" : QuoteCode = "" : RetrCode = "" : Status = "" : ARCH = "" : ENG = "" : SLSQT = "" : Distributor = "" : TypeC = "" : Comments = "" : CONTR = "" : LeadTime = "" : Sell = "" : StBidDate = ""
-
+                    GotNotGot = "" : LtgDesigner = "" : Specifier = "" '06-28-18 
                     If RowCnt = 1 Then
                         For iCol = 1 To Saw8MaxCols : objSheet.Cells(RowCnt, iCol).Value = ExcelHdgArrayProd(iCol) : Next
                         RowCnt += 1
@@ -5982,6 +5985,12 @@ ST:
                         Contact = ""
                     End Try
 
+                    Try '06-28-18
+                        GotNotGot = drQToRow.Got.ToString
+                    Catch ex As Exception
+                        GotNotGot = "FALSE"
+                    End Try
+
                     'ARCHITECTS
                     Dim drArchitects() As DataRow = dsSESCOSpecifiers.QuoteRealLU.Select("TypeC = 'A' and QuoteID = '" & drQToRow.QuoteID & "'")
                     For Each dr As dsSaw8.QuoteRealLURow In drArchitects
@@ -6000,21 +6009,36 @@ ST:
                         If CONTR = "" Then CONTR += dr.FirmName Else CONTR += "," & dr.FirmName
                     Next
 
+                    'LIGHTING DESIGNER '06-28-18
+                    Dim drLtgDesigners() As DataRow = dsSESCOSpecifiers.QuoteRealLU.Select("TypeC = 'L' and QuoteID = '" & drQToRow.QuoteID & "'")
+                    For Each dr As dsSaw8.QuoteRealLURow In drLtgDesigners
+                        If LtgDesigner = "" Then LtgDesigner += dr.FirmName Else LtgDesigner += "," & dr.FirmName
+                    Next
+
+                    'SPECIFIER '06-28-18
+                    Dim drSpecifier() As DataRow = dsSESCOSpecifiers.QuoteRealLU.Select("TypeC = 'S' and QuoteID = '" & drQToRow.QuoteID & "'")
+                    For Each dr As dsSaw8.QuoteRealLURow In drSpecifier
+                        If Specifier = "" Then Specifier += dr.FirmName Else Specifier += "," & dr.FirmName
+                    Next
+
                     objSheet.Cells(RowCnt, 1) = ProjectName : objSheet.Columns(1).ColumnWidth = 30
                     objSheet.Cells(RowCnt, 2) = QuoteCode : objSheet.Columns(2).ColumnWidth = 15 '04-24-15 
                     objSheet.Cells(RowCnt, 3) = RetrCode : objSheet.Columns(3).ColumnWidth = 15
                     objSheet.Cells(RowCnt, 4) = Status : objSheet.Columns(4).ColumnWidth = 8
-                    objSheet.Cells(RowCnt, 5) = StBidDate : objSheet.Columns(5).ColumnWidth = 10
-                    objSheet.Cells(RowCnt, 6) = SLSQT : objSheet.Columns(6).ColumnWidth = 5
-                    objSheet.Cells(RowCnt, 7) = SLSQ : objSheet.Columns(7).ColumnWidth = 5
-                    objSheet.Cells(RowCnt, 8) = Sell : objSheet.Columns(8).ColumnWidth = 10
-                    objSheet.Cells(RowCnt, 9) = Distributor : objSheet.Columns(9).ColumnWidth = 12 'Quote To:
-                    objSheet.Cells(RowCnt, 10) = TypeC : objSheet.Columns(10).ColumnWidth = 7
-                    objSheet.Cells(RowCnt, 11) = Contact : objSheet.Columns(11).ColumnWidth = 10
-                    objSheet.Cells(RowCnt, 12) = CONTR : objSheet.Columns(12).ColumnWidth = 20
-                    objSheet.Cells(RowCnt, 13) = ARCH : objSheet.Columns(13).ColumnWidth = 20
-                    objSheet.Cells(RowCnt, 14) = ENG : objSheet.Columns(14).ColumnWidth = 20
-                    objSheet.Cells(RowCnt, 15) = LeadTime : objSheet.Columns(15).ColumnWidth = 15
+                    objSheet.Cells(RowCnt, 5) = GotNotGot : objSheet.Columns(5).ColumnWidth = 8 '06-28-18
+                    objSheet.Cells(RowCnt, 6) = StBidDate : objSheet.Columns(6).ColumnWidth = 10
+                    objSheet.Cells(RowCnt, 7) = SLSQT : objSheet.Columns(7).ColumnWidth = 5
+                    objSheet.Cells(RowCnt, 8) = SLSQ : objSheet.Columns(8).ColumnWidth = 5
+                    objSheet.Cells(RowCnt, 9) = Sell : objSheet.Columns(9).ColumnWidth = 10
+                    objSheet.Cells(RowCnt, 10) = Distributor : objSheet.Columns(10).ColumnWidth = 12 'Quote To:
+                    objSheet.Cells(RowCnt, 11) = TypeC : objSheet.Columns(11).ColumnWidth = 7
+                    objSheet.Cells(RowCnt, 12) = Contact : objSheet.Columns(12).ColumnWidth = 10
+                    objSheet.Cells(RowCnt, 13) = CONTR : objSheet.Columns(13).ColumnWidth = 30
+                    objSheet.Cells(RowCnt, 14) = ARCH : objSheet.Columns(14).ColumnWidth = 30
+                    objSheet.Cells(RowCnt, 15) = ENG : objSheet.Columns(15).ColumnWidth = 30
+                    objSheet.Cells(RowCnt, 16) = LtgDesigner : objSheet.Columns(16).ColumnWidth = 30 '06-28-18
+                    objSheet.Cells(RowCnt, 17) = Specifier : objSheet.Columns(17).ColumnWidth = 30 '06-28-18
+                    objSheet.Cells(RowCnt, 18) = LeadTime : objSheet.Columns(18).ColumnWidth = 15
 
 
                     LastNCode = drQToRow.NCode

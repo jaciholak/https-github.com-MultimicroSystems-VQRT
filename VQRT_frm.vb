@@ -2501,6 +2501,7 @@ EndExit:  '10-13-14 JTC
         On Error Resume Next
         ExcelQuoteFU = False '04-28-14 JTC
         SESCO = False '04-28-14 JTC
+        Me.ChkSpecifiersCustInCols.Visible = True '06-28-18
         Me.chkBrandReport.Visible = False '05-16-13 
         Me.chkShowLatestCust.Visible = False '03-24-13
         Me.chkShowLatestCust.CheckState = CheckState.Unchecked '03-24-13
@@ -2582,6 +2583,7 @@ EndExit:  '10-13-14 JTC
         '    obj.SetItemCheckState = CheckState.Unchecked
         'Next
         Me.lblJobName.Text = "Job Name Search String" '06-22-12 
+        Me.ChkSpecifiersCustInCols.Visible = False '06-28-18
         Me.fraFinishReports.Visible = True '09-23-12
         Me.cboLinesInclude.Visible = False '12-01-09
         Me.pnlTypeOfRpt.Visible = True
@@ -2903,7 +2905,7 @@ EndExit:  '10-13-14 JTC
         'WIDE(-WideLite)
         Dim Taskid As Integer 'Form Load Settings FormLoad Load Form LoadForm tabQrt_DrawItem
         'tabQrt_DrawItem on after testingDebugOn
-        ProgramDateToolStripMenuItem.Text = "Program Date = 06-27-18" ' sub TODOList  Turn On Private Sub tabQrt_DrawItem
+        ProgramDateToolStripMenuItem.Text = "Program Date = 06-28-18" ' sub TODOList  Turn On Private Sub tabQrt_DrawItem
         Dim A As String
         Me.mnuTime.Text = "Date: " & Now.ToString("MM/dd/yyyy") & "  Time: " & Now.ToString("HH:mm:ss") '11-04-10 09
         Me.Show()

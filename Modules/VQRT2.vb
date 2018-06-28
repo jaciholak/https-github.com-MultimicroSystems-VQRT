@@ -468,6 +468,7 @@ Module VQRT2
         'To Get One Mfg Only, Chk QuotTo:Manuf, On the next Screen After Select MFG Code - Enter MFg Code 
 
         ''Done **************************************
+        '06-28-18 JH ADD GOT TO REALIZATION FOLLOW UP EXCEL REPORT
         '06-26-18 06-27-18  JH  ADD SPEC/CUST PROMPT ON QUOTE SUMMARY REPORT.  ADDS SEPERATE COLUMNS FOR EACH TYPE
         '             And Me.ChkSpecifiersCustInCols.Checked = True Then '06-25-18 06-27-18
         '01-19-18 JH  SERVERPATH NOT SETUP
